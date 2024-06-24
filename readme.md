@@ -12,6 +12,7 @@ https://www.udemy.com/course/learn-docker/
 <br />https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose
 <br />https://www.coursera.org/learn/ibm-containers-docker-kubernetes-openshift
 <br />https://openclassrooms.com/fr/courses/2035766-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker
+<br />https://www.youtube.com/watch?v=eGz9DS-aIeY&ab_channel=NetworkChuck
 
 # specialised websites
 https://diveintodocker.com/
