@@ -1,11 +1,13 @@
-FROM		alpine:3.20-stable
-WORKDIR		/nginx/
+FROM		alpine:3.20
+RUN			apk update && apk upgrade --no-cache ;\
+			apk add nginx
 
-RUN			apt-get update \
-			apt-get install nginx
+#COPY		config/config /etc/nginx/conf.d/inceptionStatic.conf
 
-COPY		config/nginx.conf nginx.config
+COPY		data/site/ /var/www/
 
-COPY		data/site/ /www/nginx/
+COPY		config/dockerEntrypoint.sh dockerEntrypoint.sh
 
-EXPOSE		8000
+ENTRYPOINT	["sh", "dockerEntrypoint.sh"]
+
+EXPOSE		80
