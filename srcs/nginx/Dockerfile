@@ -3,10 +3,10 @@ RUN			apk update && apk upgrade ;\
 			apk add bash ;\
 			apk add nginx
 
-#COPY		config/config /etc/nginx/conf.d/inceptionStatic.conf
+COPY		config/config /etc/nginx/http.d/default.conf
 
 COPY		data/site/ /var/www/
 
-ENTRYPOINT	["nginx", "-g", "daemon off;"]
+CMD			["nginx", "-g", "daemon off;"]
 
-EXPOSE		80
+EXPOSE		8080

@@ -1,9 +1,13 @@
 server {
-    listen 80 inceptionStatic;
-    listen [::]:80 inceptionStatic;
+	listen 80 default_server;
+	listen [::]:80 default_server;
+    index index.html;
+	root /var/www;
+	location / {
+		autoindex on;
+	}
 
-    location / {
-        root /var/www/
-        index index.html
-    }
+	location = /404.html {
+		internal;
+	}
 }
