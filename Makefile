@@ -1,8 +1,19 @@
 NAME =		inception
+YAML =		srcs/compose.yaml
 
 all:	
-		docker build --tag "nginxtest" srcs/nginx/
-#docker compose srcs/docker-compose.yaml
-		docker run --detach -p 8080:80 --name nginxtestCont nginxtest
+		@docker-compose -f $(YAML) build
+		@docker-compose -f $(YAML) up --detach
+
 
 $(NAME):	all
+
+stop:
+		@docker-compose -f $(YAML) stop
+
+clear:
+		@docker-compose -f $(YAML) rm
+		@docker-compose -f $(YAML) images prune
+
+nuke:
+		docker system prune -af

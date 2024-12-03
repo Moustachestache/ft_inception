@@ -1,13 +1,33 @@
+#include /etc/nginx/mime.types;
+
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-    index index.html;
-	root /var/www;
+	listen			443 ssl;
+	listen			[::]:443 ssl;
+	server_name		mjochum.42.fr;
+
+	ssl_certificate		/etc/nginx/ssl/ssl.crt;
+	ssl_certificate_key	/etc/nginx/ssl/ssl.key;
+	ssl_protocols		TLSv1.2 TLSv1.3;
+
+#	location / {
+#    	add_header Content-Type text/plain;
+#    	return 200 'running';
+#	}
+	
+	location /static_site/ {
+		root 		/var/www/static_site/;
+    	index 		index.html;
+		autoindex 	on;
+	}	
+
 	location / {
-		autoindex on;
+		root 		/var/www/static_site/;
+    	index 		index.html;
+		autoindex 	on;
 	}
 
-	location = /404.html {
-		internal;
-	}
+#	location ~* .(php)$ {
+#		include fastcgi.conf;
+#		fastcgi_pass wordpress:9000;
+#	}
 }
