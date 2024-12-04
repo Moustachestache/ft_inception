@@ -4,7 +4,7 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     container_name: nginx
-    env_file: .env
+    env_file: ".env"
     expose:
       - "443"
     ports: 
@@ -20,7 +20,7 @@ services:
       context: ./mariaDB
       dockerfile: Dockerfile
     container_name: mariaDB
-    env_file: .env
+    env_file: ".env"
     networks: 
       - inception
     restart: always
