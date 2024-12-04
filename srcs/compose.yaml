@@ -15,6 +15,16 @@ services:
       - nginx_www:/var/www/
     restart: always
 
+  mariadb:
+    build:
+      context: ./mariaDB
+      dockerfile: Dockerfile
+    container_name: mariaDB
+    env_file: .env
+    networks: 
+      - inception
+    restart: always
+
 networks:
   inception:
     driver: bridge
@@ -26,3 +36,9 @@ volumes:
       type: 'none'
       o: 'bind'
       device: ~/goinfre/www/
+  mariaDB:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: ~/goinfre/mariaDB/
