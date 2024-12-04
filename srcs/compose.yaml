@@ -20,7 +20,13 @@ services:
       context: ./mariaDB
       dockerfile: Dockerfile
     container_name: mariaDB
+    volumes:
+      - nginx_www:/var/mariaDB
     env_file: ".env"
+    expose:
+      - "3306"
+    ports: 
+      - "3306:3306"
     networks: 
       - inception
     restart: always
