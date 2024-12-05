@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
     container_name: mariaDB
     volumes:
-      - nginx_www:/var/mariaDB
+      - mariaDB:/etc/mariaDB/
     env_file: ".env"
     expose:
       - "3306"
@@ -47,4 +47,4 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: ~/goinfre/mariaDB/
+      device: /home/mjochum/goinfre/mariaDB

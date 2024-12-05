@@ -1,4 +1,6 @@
 #!/bin/bash
 
+mariadb-install-db --skip-test-db
 
-#   delete Database Commands?
+echo "SLIP"
+sleep 100000

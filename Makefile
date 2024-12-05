@@ -1,10 +1,9 @@
 NAME =		inception
 YAML =		srcs/compose.yaml
 
-VOLUME_DIRECTORY = ~/goinfre
+VOLUMES = ~/goinfre/www ~/goinfre/mariaDB
 
-BASH_DEPENDENCIES = mkdir $(VOLUME_DIRECTORY) ; mkdir $(VOLUME_DIRECTORY)/www ; mkdir $(VOLUME_DIRECTORY)/mariaDB ;\
-	chmod 777 $(VOLUME_DIRECTORY) $(VOLUME_DIRECTORY)/www $(VOLUME_DIRECTORY)/mariaDB
+BASH_DEPENDENCIES = mkdir --mode=775 --parents --verbose $(VOLUMES)
 
 all:	build up
 
@@ -13,7 +12,7 @@ $(NAME):	all
 folders:	
 		$(BASH_DEPENDENCIES)
 
-build:	
+build:	folders
 		@docker-compose -f $(YAML) build
 
 up:	
@@ -29,4 +28,4 @@ clear:	stop
 nuke:	clear
 		docker system prune -af
 		docker volume prune
-		rm -ri ~/goinfre/www/ ~/goinfre/mariaDB/
+		rm -ri $(VOLUMES)
