@@ -31,6 +31,18 @@ services:
       - inception
     restart: always
 
+  wordpress:
+    build:
+      context: ./wordpress
+      dockerfile: Dockerfile
+    container_name: wordpress
+    volumes:
+      - nginx_www:/var/www/
+    env_file: ".env"
+    networks: 
+      - inception
+    restart: always
+
 networks:
   inception:
     driver: bridge

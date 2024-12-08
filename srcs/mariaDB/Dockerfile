@@ -12,4 +12,6 @@ COPY    ./config/mariaDBConfig.conf /etc/my.cnf.d/mariadb-server.cnf
 
 EXPOSE  3306
 
+#RUN     echo "executing bash script ...\n" ; bash /etc/startupScript.sh
+
 CMD     ["bash", "/etc/startupScript.sh"]
