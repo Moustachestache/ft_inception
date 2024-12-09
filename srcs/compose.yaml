@@ -39,6 +39,11 @@ services:
     volumes:
       - nginx_www:/var/www/
     env_file: ".env"
+    expose:
+      - "9001"
+      - "9000"
+    ports: 
+      - "9000:9001"
     networks: 
       - inception
     restart: always
