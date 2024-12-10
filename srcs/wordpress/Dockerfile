@@ -4,7 +4,8 @@ RUN			apk update && apk upgrade ;\
                 apk add bash mariadb-client curl \
                 php83 php83-phar php83-curl php83-mysqli php83-fpm
 
-EXPOSE      9000
-EXPOSE      9001
+COPY        ./config/install.sh install.sh
 
-CMD [ "php-fpm83", "--nodaemonize --force-stderr" ]
+EXPOSE      9000 9001
+
+CMD [ "bash", "./install.sh" ]
