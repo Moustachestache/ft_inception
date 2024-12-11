@@ -5,18 +5,18 @@ server {
 	listen			[::]:443 ssl;
 	server_name		mjochum.42.fr;
 
-	ssl_certificate		/etc/nginx/ssl/ssl.crt;
-	ssl_certificate_key	/etc/nginx/ssl/ssl.key;
-	ssl_protocols		TLSv1.2 TLSv1.3;
+	ssl_certificate			/etc/nginx/ssl/ssl.crt;
+	ssl_certificate_key		/etc/nginx/ssl/ssl.key;
+	ssl_protocols			TLSv1.2 TLSv1.3;
+    index 					index.html index.php;
+	root 					/var/www/;
 
 	location / {
-		root 		/var/www/;
-    	index 		index.html index.php;
 		autoindex 	on;
 	}
 
-#	location ~ \,php$ {
-#		include fastcgi.conf;
-#		fastcgi_pass wordpress:9001;
-#	}
+	location ~ \.php$ {
+		include fastcgi.conf;
+		fastcgi_pass wordpress:9001;
+	}
 }

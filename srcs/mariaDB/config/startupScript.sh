@@ -19,4 +19,6 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
     rm -f init.sql
 fi
 
+## add db health check
+
 mysqld --user=root --console
