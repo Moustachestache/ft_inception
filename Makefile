@@ -3,9 +3,10 @@ YAML =		srcs/compose.yaml
 
 VOLUMES = ~/goinfre/www ~/goinfre/mariaDB
 
-BASH_DEPENDENCIES = mkdir --mode=775 --parents --verbose $(VOLUMES)
+BASH_DEPENDENCIES = bash ./env_generate.sh;\
+					mkdir --mode=775 --parents --verbose $(VOLUMES)
 
-all:	build up
+all:	build logs
 
 $(NAME):	all
 
@@ -17,6 +18,9 @@ build:	folders
 
 up:	
 		@docker-compose -f $(YAML) up --detach
+
+logs:	
+		@docker-compose -f $(YAML) up
 
 stop:
 		@docker-compose -f $(YAML) stop

@@ -15,8 +15,12 @@ server {
 		autoindex 	on;
 	}
 
+	location wordpress/ {
+		autoindex 	on;
+	}
+
 	location ~ \.php$ {
 		include fastcgi.conf;
-		fastcgi_pass wordpress:9001;
+		fastcgi_pass wordpress:9000;
 	}
 }

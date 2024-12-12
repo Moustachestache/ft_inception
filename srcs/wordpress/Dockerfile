@@ -11,4 +11,4 @@ COPY        ./config/wp_init_post.txt wp_init_post.txt
 
 EXPOSE      9000 9001
 
-CMD [ "bash", "./install.sh" ]
+CMD         [ "bash", "./install.sh" ]

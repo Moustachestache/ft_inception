@@ -1,17 +1,4 @@
 services:
-  nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
-    container_name: nginx
-    env_file: ".env"
-    ports: 
-      - "443:443"
-    networks: 
-      - inception
-    volumes:
-      - nginx_www:/var/www/
-    restart: always
 
   mariadb:
     build:
@@ -42,6 +29,22 @@ services:
       - "9000:9001"
     networks: 
       - inception
+    restart: always
+
+  nginx:
+    depends_on:
+      - wordpress
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    env_file: ".env"
+    ports: 
+      - "443:443"
+    networks: 
+      - inception
+    volumes:
+      - nginx_www:/var/www/
     restart: always
 
 networks:
