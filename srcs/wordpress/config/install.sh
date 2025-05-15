@@ -7,7 +7,7 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 
-# edit php-fdm to be on port 9001
+# edit php-fdm to be on port 9000
 sed -i 's/listen = 127.0.0.1:9000/listen = 9000/g' /etc/php83/php-fpm.d/www.conf
 
 # php at /etc/php83/php.ini

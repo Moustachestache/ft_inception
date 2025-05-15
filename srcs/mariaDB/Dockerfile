@@ -6,8 +6,6 @@ RUN		apk update && apk upgrade ;\
 
 COPY    ./config/startupScript.sh  /etc/startupScript.sh
 
-COPY    ./config/databaseCommands.txt  /etc/databaseCommands
-
 COPY    ./config/mariaDBConfig.conf /etc/my.cnf.d/mariadb-server.cnf
 
 EXPOSE  3306
