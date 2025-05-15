@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -e ./.env ]
+if [ -e ./srcs/.env ]
 then
     echo ".env is present, skipping script"
     exit 0;
@@ -92,4 +92,4 @@ _WPEMAIL="$_WADMINEMAIL"
 _USER="$_WUSER"
 _PASSWORD="$_WPASS"
 _USEREMAIL="$_WMAIL"
-" > .env
+" > ./srcs/.env

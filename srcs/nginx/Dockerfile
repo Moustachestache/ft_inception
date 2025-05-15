@@ -15,7 +15,7 @@ RUN			apk update && apk upgrade ;\
 				-nodes \
 				-out /etc/nginx/ssl/ssl.crt \
 				-keyout /etc/nginx/ssl/ssl.key \
-				-subj "/C=FR/ST=PO/L=Perpignan/O=42/CN=mjochum.42.fr/UID=mjochum"
+				-subj "/C=FR/ST=PO/L=Perpignan/O=42/CN=odiachen.42.fr/UID=odiachen"
 
 EXPOSE		443
 

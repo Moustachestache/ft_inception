@@ -63,4 +63,4 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: /home/mjochum/goinfre/mariaDB
+      device: ~/goinfre/mariaDB
