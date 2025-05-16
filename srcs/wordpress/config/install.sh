@@ -34,7 +34,7 @@ do
     then
         break
     fi
-    echo $_failcount " waiting on mariadb to be initialised - status " $dbstatus
+    echo $_failcount "waiting on mariadb to be initialised - status " $dbstatus
     _failcount=$(($_failcount + 1))
     sleep 1
     if [ "$_failcount" -gt 25 ]
