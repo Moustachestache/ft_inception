@@ -32,7 +32,7 @@ wpstatus=$?
 _failcount=0
 while :
 do
-    mysqladmin ping -hmariaDB -u$_MDBUSER -p$_MDBPASSWORD
+    mysqladmin ping -hmariaDB:3306 -u$_MDBUSER -p$_MDBPASSWORD 
     dbstatus=$?
     if [ $dbstatus ]
     then
@@ -61,7 +61,7 @@ then
 
     wp user create $_WPADMIN $_WPEMAIL --user_pass=$_WPPASSWORD --role="administrator" --display_name=$_WPADMIN --allow-root
 
-    wp post create  --post_author=$_WPADMIN --post_title="recipe 4 pickles" --post_status=publish /wp_init_post.txt ;
+    wp post create  --post_author=$_WPADMIN --post_title="i love food" --post_status=publish /wp_init_post.txt ;
 fi
 
 if [ ! -d /var/www/wordpress/wp-content/themes/twentytwentytwo/ ]
