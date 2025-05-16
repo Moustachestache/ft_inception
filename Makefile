@@ -1,7 +1,7 @@
 NAME =		inception
 YAML =		srcs/compose.yaml
 
-VOLUMES = ~/goinfre/www ~/goinfre/mariaDB
+VOLUMES = ~/data/www ~/data/mariaDB
 
 BASH_DEPENDENCIES = bash ./env_generate.sh;\
 					mkdir --mode=775 --parents --verbose $(VOLUMES)
