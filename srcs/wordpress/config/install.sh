@@ -10,6 +10,10 @@ mv wp-cli.phar /usr/local/bin/wp
 # edit php-fdm to be on port 9000
 sed -i 's/listen = 127.0.0.1:9000/listen = 9000/g' /etc/php83/php-fpm.d/www.conf
 
+# set memory_limit = 300
+sed -i "/memory_limit =/c\memory_limit = 300M" /etc/php83/php.ini
+
+
 # php at /etc/php83/php.ini
 # do nothing?
 # https://make.wordpress.org/cli/handbook/guides/quick-start/
